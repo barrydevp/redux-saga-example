@@ -1,25 +1,24 @@
-import "babel-polyfill"
+import "babel-polyfill";
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-import Counter from './Counter'
-import reducer from './reducers'
+import store from "./store";
 
-const store = createStore(reducer)
+import Counter from "./Counter";
 
-const action = type => store.dispatch({type})
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Counter />
+    </Provider>
+  );
+};
 
 function render() {
-  ReactDOM.render(
-    <Counter
-      value={store.getState()}
-      onIncrement={() => action('INCREMENT')}
-      onDecrement={() => action('DECREMENT')} />,
-    document.getElementById('root')
-  )
+  ReactDOM.render(<App />, document.getElementById("root"));
 }
 
-render()
-store.subscribe(render)
+render();
+store.subscribe(render);
