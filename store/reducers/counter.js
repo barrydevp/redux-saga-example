@@ -1,7 +1,7 @@
 import { counterTypes } from "../actionTypes";
 
 export default function counter(state = 0, action) {
-  console.log(action);
+  // console.log(action);
   const { payload } = action;
 
   switch (action.type) {

@@ -9,6 +9,8 @@ import store from "./store";
 import Counter from "./Counter";
 
 const App = () => {
+  // store.dispatch({ type: "counter/increment" })
+
   return (
     <Provider store={store}>
       <Counter />
